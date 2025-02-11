@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "UserList";
+}
+@model List<AspNetCoreIdentityApp.Web.Areas.Admin.Models.UserViewModel>
+<table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+        <tr>
+            <th>Id</th>
+            <th>User Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+		@foreach (var user in Model)
+		{
+		<tr>
+			<td>@user.UserId</td>
+			<td>@user.UserName</td>
+			<td>@user.UserEmail,</td>
+		</tr>
+		}
+    </tbody>
+</table>
+
