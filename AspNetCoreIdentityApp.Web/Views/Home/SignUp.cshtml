@@ -8,10 +8,7 @@
 	@await Html.PartialAsync("_ValidationScriptsPartial")
 }
 
-<section class="vh-100 bg-image"
-		 style="background-image: url('https://kulturveyasam.com/wp-content/uploads/2017/06/03_hali.jpg');
-                background-size: cover;
-                background-position: center;">
+<section class="vh-100>
 
 	<div class="mask d-flex align-items-center h-100 gradient-custom-3">
 		<div class="container h-100">
@@ -21,17 +18,17 @@
 						<div class="card-body p-5">
 							<h2 class="text-uppercase text-center mb-5">Create an account</h2>
 							
-                            @if (TempData["Message"] != null)
-                            {
-                                <div class="alert alert-success alert-white rounded" id="successMessage">
-                                    <div class="icon">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                    <strong>Success!</strong>
-                                    @TempData["Message"]
-                                </div>
+							@if (TempData["Message"] != null)
+							{
+								<div class="alert alert-success alert-white rounded" id="successMessage">
+									<div class="icon">
+										<i class="fa fa-check"></i>
+									</div>
+									<strong>Success!</strong>
+									@TempData["Message"]
+								</div>
 
-                                <script>
+								<script>
                                     setTimeout(function () {
                                         var message = document.getElementById('successMessage');
                                         if (message) {
@@ -39,7 +36,7 @@
                                         }
                                     }, 5000); // 5000 milliseconds = 5 seconds
                                 </script>
-                            }
+							}
 							
 							<div asp-validation-summary="ModelOnly" class="alert alert-danger alert-white rounded"></div>    
 
@@ -92,3 +89,17 @@
 		</div>
 	</div>
 </section>
+<style>
+	/* Sayfanın tüm arka planını değiştirmek için */
+	html, body {
+		height: 100%; /* Sayfanın tamamını kapsayacak şekilde */
+		background-color: #0d030c;
+	}
+
+	/* Arka planı değiştirmek için section'daki alan */
+	.vh-100 {
+		background-color: #0d030c; /* Burada section'ın rengini de değiştirebilirsiniz */
+	}
+</style>
+
+
