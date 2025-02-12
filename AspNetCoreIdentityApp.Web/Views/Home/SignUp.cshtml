@@ -1,105 +1,110 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "SignUp";
 }
 @model SignUpViewModel
 @section Scripts
 {
-	@await Html.PartialAsync("_ValidationScriptsPartial")
+    @await Html.PartialAsync("_ValidationScriptsPartial")
 }
 
-<section class="vh-100>
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <!-- Sol Taraf: Resim -->
+            <div class="col-md-8 col-lg-7 col-xl-6">
+                <img src="https://www.pixelstalk.net/wp-content/uploads/image11/Galaxy-Wolf-Wallpaper-free-download-for-iPhone.png"
+                     class="img-fluid custom-img" alt="Sign up image">
+            </div>
+            <!-- Sağ Taraf: Form -->
+            <div class="col-md-10 col-lg-5 col-xl-5 offset-xl-1">
+                <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-	<div class="mask d-flex align-items-center h-100 gradient-custom-3">
-		<div class="container h-100">
-			<div class="row d-flex justify-content-center align-items-center h-100">
-				<div class="col-12 col-md-9 col-lg-7 col-xl-6">
-					<div class="card" style="border-radius: 15px;">
-						<div class="card-body p-5">
-							<h2 class="text-uppercase text-center mb-5">Create an account</h2>
-							
-							@if (TempData["Message"] != null)
-							{
-								<div class="alert alert-success alert-white rounded" id="successMessage">
-									<div class="icon">
-										<i class="fa fa-check"></i>
-									</div>
-									<strong>Success!</strong>
-									@TempData["Message"]
-								</div>
+                @if (TempData["Message"] != null)
+                {
+                    <div class="alert alert-success alert-white rounded" id="successMessage">
+                        <div class="icon">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <strong>Success!</strong>
+                        @TempData["Message"]
+                    </div>
 
-								<script>
-                                    setTimeout(function () {
-                                        var message = document.getElementById('successMessage');
-                                        if (message) {
-                                            message.style.display = 'none';
-                                        }
-                                    }, 5000); // 5000 milliseconds = 5 seconds
-                                </script>
-							}
-							
-							<div asp-validation-summary="ModelOnly" class="alert alert-danger alert-white rounded"></div>    
+                    <script>
+                        setTimeout(function () {
+                            var message = document.getElementById('successMessage');
+                            if (message) {
+                                message.style.display = 'none';
+                            }
+                        }, 5000);
+                    </script>
+                }
 
-							<form asp-controller="Home" asp-action="SignUp" method="post">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger alert-white rounded"></div>
 
-								<div data-mdb-input-init class="form-outline mb-4">
-									<label class="form-label"  asp-for="UserName"></label>
-									<input asp-for="UserName"  class="form-control form-control-lg"/>
-									<span class="text-danger" asp-validation-for="UserName"></span>
-								</div>
+                <form asp-controller="Home" asp-action="SignUp" method="post">
+                    <!-- UserName input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" asp-for="UserName"></label>
+                        <input asp-for="UserName" class="form-control form-control-lg" />
+                        <span class="text-danger" asp-validation-for="UserName"></span>
+                    </div>
 
-								<div data-mdb-input-init class="form-outline mb-4">
-									<label class="form-label"  asp-for="Email"></label>
-									<input asp-for="Email"  class="form-control form-control-lg"/>
-									<span class="text-danger" asp-validation-for="Email"></span>
-								</div>
-								
-								<div data-mdb-input-init class="form-outline mb-4">
-									<label class="form-label" asp-for="Phone">Phone</label>
-									<input asp-for="Phone" id="phone" class="form-control form-control-lg" />
-									<span class="text-danger" asp-validation-for="Phone"></span>
-								</div>
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control form-control-lg" />
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
 
-								<div data-mdb-input-init class="form-outline mb-4">
-									<label class="form-label"  asp-for="Password"></label>
-									<input asp-for="Password"  class="form-control form-control-lg"/>
-									<span class="text-danger" asp-validation-for="Password"></span>
-								</div>
+                    <!-- Phone input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" asp-for="Phone">Phone</label>
+                        <input asp-for="Phone" id="phone" class="form-control form-control-lg" />
+                        <span class="text-danger" asp-validation-for="Phone"></span>
+                    </div>
 
-								<div data-mdb-input-init class="form-outline mb-4">
-									<label class="form-label" asp-for="ConfirmPassword"></label>
-									<input asp-for="ConfirmPassword"  class="form-control form-control-lg"/>
-									<span class="text-danger" asp-validation-for="ConfirmPassword"></span>
-								</div>
+                    <!-- Password input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control form-control-lg" />
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
 
+                    <!-- ConfirmPassword input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" asp-for="ConfirmPassword"></label>
+                        <input asp-for="ConfirmPassword" class="form-control form-control-lg" />
+                        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                    </div>
 
-								<div class="d-flex justify-content-center">
-									<button type="submit" data-mdb-button-init
-									        data-mdb-ripple-init class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
-										Register
-									</button>
-								</div>
-
-							</form>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    <!-- Submit button -->
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg btn-block">
+                            Register
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
+
 <style>
-	/* Sayfanın tüm arka planını değiştirmek için */
-	html, body {
-		height: 100%; /* Sayfanın tamamını kapsayacak şekilde */
-		background-color: #0d030c;
-	}
+    /* Sayfanın tüm arka planını değiştirmek için */
+    html, body {
+        height: 100%; /* Sayfanın tamamını kapsayacak şekilde */
+        background-color: #000001;
+        color: white;
+    }
 
-	/* Arka planı değiştirmek için section'daki alan */
-	.vh-100 {
-		background-color: #0d030c; /* Burada section'ın rengini de değiştirebilirsiniz */
-	}
+    /* Section arka plan rengi */
+    .vh-100 {
+        background-color: #000001;
+    }
+
+    /* Resim stilleri */
+    .custom-img {
+        width: 100%;
+        height: auto;
+    }
 </style>
-
-

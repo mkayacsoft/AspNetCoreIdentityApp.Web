@@ -1,0 +1,82 @@
+﻿@if (User.Identity!.IsAuthenticated)
+{
+    <ul class="nav navbar-nav navbar-right ms-auto">
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle user-action" data-bs-toggle="dropdown">
+                <img src="https://www.tutorialrepublic.com/examples/images/avatar/2.jpg" class="avatar" alt="Avatar">
+                @User.Identity.Name
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></li>
+                <li><a class="dropdown-item" asp-route-returnurl="/Home/Index" asp-controller="Member" asp-action="Logout">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
+}
+else
+{
+    <a class="btn btn-outline-success me-2" asp-controller="Home" asp-action="SignUp">
+        <i class="fa fa-user-plus"></i> Sign Up
+    </a>
+    <a class="btn btn-outline-primary" asp-controller="Home" asp-action="SignIn">
+        <i class="fa fa-sign-in-alt"></i> Sign In
+    </a>
+}
+
+<!-- Stil kısmı -->
+<style>
+    /* Avatar stilini modernleştir */
+    .avatar {
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        margin-right: 8px;
+        border: 2px solid #ddd;
+    }
+
+    /* Dropdown stilini iyileştir */
+    .nav-item .dropdown-menu {
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-left: -50px;
+    }
+
+        .nav-item .dropdown-menu a {
+            color: #555;
+            padding: 10px 20px;
+        }
+
+            .nav-item .dropdown-menu a:hover {
+                background-color: #f0f0f0;
+                color: #333;
+            }
+
+    .dropdown-menu .material-icons {
+        font-size: 20px;
+        margin-right: 8px;
+    }
+
+    /* Sign In/Sign Up butonlarını güzelleştir */
+    .btn-outline-success, .btn-outline-primary {
+        font-size: 14px;
+        padding: 8px 20px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+    }
+
+        .btn-outline-success:hover, .btn-outline-primary:hover {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+    /* Navbar'daki boşlukları düzenle */
+    .navbar-nav.ms-auto {
+        margin-left: auto;
+    }
+</style>
